@@ -2,7 +2,7 @@
 
 class acf_field_image_crop extends acf_field_image {
 
-
+    var $options;
     /*
     *  initialize
     *
