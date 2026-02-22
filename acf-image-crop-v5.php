@@ -494,7 +494,11 @@ class acf_field_image_crop extends acf_field_image {
 
     }
 
-    function perform_crop(){
+    function perform_crop
+        if ( ! current_user_can( 'upload_files' ) ) {
+            wp_send_json_error( 'Unauthorized', 403 );
+            wp_die();
+        }
         $targetWidth = $_POST['target_width'];
         $targetHeight = $_POST['target_height'];
 
